@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JK-Tutorials | Lua Scripts</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+<!-- Loading Screen -->
+<div id="loading-screen">
+  <div class="spinner"></div>
+  <h2>Loading JK-Tutorials...</h2>
+</div>
+
+<!-- Main Content -->
+<div id="main-content" style="display:none;">
+  <header>
+    <h1>JK-Tutorials</h1>
+    <nav>
+      <button onclick="showTab('scripts')">Scripts</button>
+      <button onclick="showTab('tutorials')">Tutorials</button>
+      <button onclick="showTab('about')">About</button>
+      <button onclick="window.open('https://www.youtube.com/@JustKiddingYTJK', '_blank')">Subscribe</button>
+    </nav>
+    <input type="text" id="searchInput" onkeyup="searchScripts()" placeholder="Search Scripts...">
+  </header>
+
+  <main>
+    <section id="scripts" class="tab">
+      <h2>Lua Scripts</h2>
+
+      <div class="script">
+        <h3>Speed Script</h3>
+        <pre id="speed-script">-- Speed Script
+game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = 100</pre>
+        <button onclick="copyScript('speed-script')">Copy</button>
+      </div>
+
+      <div class="script">
+        <h3>Jump Script</h3>
+        <pre id="jump-script">-- Jump Script
+game:GetService("Players").LocalPlayer.Character.Humanoid.JumpPower = 100</pre>
+        <button onclick="copyScript('jump-script')">Copy</button>
+      </div>
+
+      <div class="script">
+        <h3>Fling Script</h3>
+        <pre id="fling-script">-- Fling Script
+local function fling(target)
+    local char = target or game.Players.LocalPlayer.Character
+    if char then
+        local bodyVelocity = Instance.new("BodyVelocity")
+        bodyVelocity.MaxForce = Vector3.new(10000, 10000, 10000)
+        bodyVelocity.Velocity = Vector3.new(100, 100, 100)
+        bodyVelocity.Parent = char.HumanoidRootPart
+        game.Debris:AddItem(bodyVelocity, 0.1)
+    end
+end
+fling(game.Players.LocalPlayer.Character)</pre>
+        <button onclick="copyScript('fling-script')">Copy</button>
+      </div>
+
+      <div class="script">
+        <h3>Invisibility Script</h3>
+        <pre id="invisible-script">-- Invisibility Script
+local player = game.Players.LocalPlayer
+player.Character:WaitForChild("HumanoidRootPart").Transparency = 1
+player.Character:WaitForChild("Humanoid").HipWidth = 0</pre>
+        <button onclick="copyScript('invisible-script')">Copy</button>
+      </div>
+
+      <div class="script">
+        <h3>AutoJump Script</h3>
+        <pre id="autojump-script">-- AutoJump Script
+local humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+while humanoid do
+    wait(1)
+    humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+end</pre>
+        <button onclick="copyScript('autojump-script')">Copy</button>
+      </div>
+
+      <div class="script">
+        <h3>GodMode Script</h3>
+        <pre id="godmode-script">-- GodMode Script
+local player = game.Players.LocalPlayer
+player.Character.Humanoid.Name = "God"</pre>
+        <button onclick="copyScript('godmode-script')">Copy</button>
+      </div>
+
+      <div class="script">
+        <h3>Anti-Hit Script</h3>
+        <pre id="antihit-script">-- Anti-Hit Script
+local char = game.Players.LocalPlayer.Character
+char.HumanoidRootPart.CanCollide = false
+char.HumanoidRootPart.Anchored = true</pre>
+        <button onclick="copyScript('antihit-script')">Copy</button>
+      </div>
+
+    </section>
+
+    <section id="tutorials" class="tab" style="display:none;">
+      <h2>Tutorials</h2>
+      <div class="tutorial">
+        <h3>How to Use Speed Script</h3>
+        <p>This script makes your character move faster. Paste it into your executor and execute it!</p>
+      </div>
+      <div class="tutorial">
+        <h3>How to Use Jump Script</h3>
+        <p>This increases your jump height massively! Just run it after injecting your executor.</p>
+      </div>
+      <div class="tutorial">
+        <h3>How to Use Fling Script</h3>
+        <p>This script is super complicated, if it is too complicated, just comment on my latest video for a full tutorial</p>
+      </div>
+      <div class="tutorial">
+        <h3>How to Use Invisibility Script</h3>
+        <p>Makes your character invisible to other players! Perfect for trolling or escaping.</p>
+      </div>
+      <div class="tutorial">
+        <h3>How to Use AutoJump Script</h3>
+        <p>Makes your character jump automatically every second!</p>
+      </div>
+      <div class="tutorial">
+        <h3>How to Use GodMode Script</h3>
+        <p>Makes your humanoid extremely strong and can survive attacks. Use with caution!</p>
+      </div>
+      <div class="tutorial">
+        <h3>How to Use Anti-Hit Script</h3>
+        <p>Makes it harder for others to hit you by disabling collisions and anchoring your root part!</p>
+      </div>
+    </section>
+
+    <section id="about" class="tab" style="display:none;">
+      <h2>About JK-Tutorials</h2>
+      <p>If this website helped you, consider subscribing to my official YouTube Channel!  
+      Find it in the Subscribe button above! 🚀🎥  
+      Channel: <b>@JustKiddingYTJK</b></p>
+    </section>
+  </main>
+</div>
+
+</body>
+</html>
+
+
+
+
